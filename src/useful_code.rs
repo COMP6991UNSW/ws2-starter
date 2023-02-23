@@ -13,12 +13,12 @@ pub enum TimeOfDay {
 
 #[derive(Debug)]
 pub struct Entry {
-    time_period: String,
-    station: String,
-    entries: HashMap<TimeOfDay, i32>,
-    exits: HashMap<TimeOfDay, i32>,
-    latitude: f64,
-    longitude: f64,
+    pub time_period: String,
+    pub station: String,
+    pub entries: HashMap<TimeOfDay, i32>,
+    pub exits: HashMap<TimeOfDay, i32>,
+    pub latitude: f64,
+    pub longitude: f64,
 }
 
 pub fn convert_csventry_to_entry(csv_entry: &CSVEntry) -> Entry {

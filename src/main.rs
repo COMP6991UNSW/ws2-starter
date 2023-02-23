@@ -6,7 +6,7 @@ use std::path::Path;
 use geoutils::Location;
 use serde::Deserialize;
 
-use crate::useful_code::convert_csventry_to_entry;
+use crate::useful_code::{convert_csventry_to_entry, Entry};
 
 mod useful_code;
 
