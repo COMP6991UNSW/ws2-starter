@@ -1,15 +1,18 @@
 use std::collections::HashMap;
 
-enum TimeOfDay {
+use crate::CSVEntry;
+
+#[derive(Debug, Hash, PartialEq, Eq)]
+pub enum TimeOfDay {
     Morning,
     Midday,
     Evening,
     Midnight,
-    Total
+    Total,
 }
 
 #[derive(Debug)]
-struct Entry {
+pub struct Entry {
     time_period: String,
     station: String,
     entries: HashMap<TimeOfDay, i32>,
@@ -18,14 +21,14 @@ struct Entry {
     longitude: f64,
 }
 
-fn convert_csventry_to_entry(csv_entry: &CSVEntry) -> Entry {
+pub fn convert_csventry_to_entry(csv_entry: &CSVEntry) -> Entry {
     let mut entry = Entry {
         time_period: csv_entry.time_period.clone(),
         station: csv_entry.station.clone(),
         entries: HashMap::new(),
         exits: HashMap::new(),
         latitude: csv_entry.latitude,
-        longitude: csv_entry.longitude
+        longitude: csv_entry.longitude,
     };
 
     if let Some(e) = csv_entry.entries_morning {
@@ -61,5 +64,4 @@ fn convert_csventry_to_entry(csv_entry: &CSVEntry) -> Entry {
     }
 
     entry
-
 }

@@ -6,8 +6,12 @@ use std::path::Path;
 use geoutils::Location;
 use serde::Deserialize;
 
+use crate::useful_code::convert_csventry_to_entry;
+
+mod useful_code;
+
 #[derive(Deserialize, Debug)]
-struct CSVEntry {
+pub struct CSVEntry {
     #[serde(rename = "YEAR")]
     time_period: String,
 
@@ -60,7 +64,6 @@ struct CSVEntry {
     #[serde(rename = "LONG")]
     longitude: f64,
 }
-
 
 /// To create a location, run:
 ///
